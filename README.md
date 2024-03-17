@@ -9,3 +9,7 @@ Increased the resized pixel dimensions from 32x32 to 150x150.
 Included f2 score on custom made model.
 Added a Learning rate scheduler on the custom model.
 Fitted the custom model without Data Augumentation - Test purposes only.
+
+Third week:
+More hyper-parameter tuning/tweaking -> batch normalization added.
+More performance evaluation metrics added for custom NN -> precison/recall.
