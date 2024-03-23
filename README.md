@@ -10,6 +10,9 @@ Included f2 score on custom made model.
 Added a Learning rate scheduler on the custom model.
 Fitted the custom model without Data Augumentation - Test purposes only.
 
-Third week:
+Third Week:
 More hyper-parameter tuning/tweaking -> batch normalization added.
 More performance evaluation metrics added for custom NN -> precison/recall.
+
+Fourth week:
+Added more performance evaluation metrics added for custom Binary NN Benign/Malignant -> precison/recall.
