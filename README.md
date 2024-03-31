@@ -16,3 +16,6 @@ More performance evaluation metrics added for custom NN -> precison/recall.
 
 Fourth week:
 Added more performance evaluation metrics added for custom Binary NN Benign/Malignant -> precison/recall.
+
+Fifth week:
+Refactored code -> Included more pre-trained models.
