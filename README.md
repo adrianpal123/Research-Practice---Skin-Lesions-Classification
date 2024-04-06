@@ -19,3 +19,6 @@ Added more performance evaluation metrics added for custom Binary NN Benign/Mali
 
 Fifth week:
 Refactored code -> Included more pre-trained models.
+
+Week 6:
+More Refactoring + More Performance Matrics + Storing Results in Txt files.
