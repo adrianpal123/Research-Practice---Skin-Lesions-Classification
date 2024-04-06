@@ -1,0 +1,5 @@
+CustomSimpleNeuralNetwork Performance Metrics:
+accuracy: 0.72591113330005
+precision: 0.4468645763036984
+recall: 0.3737333704675966
+f1_score: 0.38426647450384394

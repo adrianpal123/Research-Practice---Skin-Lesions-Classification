@@ -1,0 +1,5 @@
+InceptionV3 -10Epochs Performance Metrics:
+accuracy: 0.7154268597104343
+precision: 0.2856402508285997
+recall: 0.24950701575456138
+f1_score: 0.24980692030720805

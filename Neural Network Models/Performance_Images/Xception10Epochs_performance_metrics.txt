@@ -1,0 +1,5 @@
+Xception10Epochs Performance Metrics:
+accuracy: 0.7568647029455816
+precision: 0.5851051355407105
+recall: 0.6471940361445272
+f1_score: 0.5924810942402415

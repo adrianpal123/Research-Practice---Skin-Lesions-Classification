@@ -1,0 +1,5 @@
+CustomSimpleNeuralNetwork - 50 Epochs Performance Metrics:
+accuracy: 0.6674987518721918
+precision: 0.09545227386306845
+recall: 0.14275037369207771
+f1_score: 0.11440551063192571

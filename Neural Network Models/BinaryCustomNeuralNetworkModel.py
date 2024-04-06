@@ -1,6 +1,7 @@
 import os
 import numpy as np
 import pandas as pd
+import time
 from sklearn.model_selection import train_test_split
 from tensorflow.keras.preprocessing.image import load_img, img_to_array
 from keras.models import Sequential
@@ -45,10 +46,18 @@ model_binary.compile(loss='binary_crossentropy',
 # Print the binary model summary
 model_binary.summary()
 
+# Record the start time
+start_time = time.time()
+
 # Fit the binary model
 history_binary = model_binary.fit(X_train, y_train, batch_size=32, epochs=1, validation_data=(X_test, y_test), verbose=1)
 
-# After the model training
+# Record the end time
+end_time = time.time()
+
+# Calculate the training time
+training_time = end_time - start_time
+print(f"Training time: {training_time:.2f} seconds")
 
 # Predict on the test set
 y_pred = model_binary.predict(X_test)
