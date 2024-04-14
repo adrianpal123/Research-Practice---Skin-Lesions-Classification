@@ -1,0 +1,5 @@
+MobileNet Performance Metrics:
+accuracy: 0.7748377433849226
+precision: 0.7240849376524843
+recall: 0.5165529425033859
+f1_score: 0.5698234701549719

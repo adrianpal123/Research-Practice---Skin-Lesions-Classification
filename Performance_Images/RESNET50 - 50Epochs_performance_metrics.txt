@@ -1,0 +1,6 @@
+RESNET50 - 50Epochs Performance Metrics:
+accuracy: 0.7348976535197205
+precision: 0.5161276577977579
+recall: 0.44210873927651406
+f1_score: 0.45436242838836494
+Time taken: 29.24 minutes

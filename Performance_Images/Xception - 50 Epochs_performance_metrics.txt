@@ -1,0 +1,6 @@
+Xception - 50 Epochs Performance Metrics:
+accuracy: 0.7798302546180729
+precision: 0.7219951200187886
+recall: 0.5126571370762931
+f1_score: 0.5567138933696443
+Time taken: 30.18 minutes

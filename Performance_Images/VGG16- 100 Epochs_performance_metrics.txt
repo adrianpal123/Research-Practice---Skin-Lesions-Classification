@@ -1,0 +1,6 @@
+VGG16- 100 Epochs Performance Metrics:
+accuracy: 0.7468796804792811
+precision: 0.5765566676517444
+recall: 0.4684267752497136
+f1_score: 0.48979972491192003
+Time taken: 19.04 minutes

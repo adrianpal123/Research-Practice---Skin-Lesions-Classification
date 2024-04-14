@@ -1,0 +1,6 @@
+MobileNet- 50 Epochs Performance Metrics:
+accuracy: 0.7933100349475787
+precision: 0.7734028795509195
+recall: 0.5360880175377245
+f1_score: 0.601213308289635
+Time taken: 9.32 minutes

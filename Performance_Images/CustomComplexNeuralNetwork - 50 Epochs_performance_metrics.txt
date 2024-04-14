@@ -1,0 +1,6 @@
+CustomComplexNeuralNetwork - 50 Epochs Performance Metrics:
+accuracy: 0.7224163754368448
+precision: 0.47448226217729095
+recall: 0.3866140489896311
+f1_score: 0.3978014439210969
+Time taken: 12.25 minutes

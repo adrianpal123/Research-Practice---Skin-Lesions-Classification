@@ -1,0 +1,6 @@
+InceptionV3 - 100 Epochs Performance Metrics:
+accuracy: 0.7174238642036944
+precision: 0.4053621517766384
+recall: 0.3426378846828078
+f1_score: 0.35953236702029406
+Time taken: 36.90 minutes
