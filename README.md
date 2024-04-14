@@ -22,3 +22,6 @@ Refactored code -> Included more pre-trained models.
 
 Week 6:
 More Refactoring + More Performance Matrics + Storing Results in Txt files.
+
+Week 7:
+Performance metrics for 10-50-100 epochs tested for more pre-trained and custom models
