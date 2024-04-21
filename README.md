@@ -24,4 +24,7 @@ Week 6:
 More Refactoring + More Performance Matrics + Storing Results in Txt files.
 
 Week 7:
-Performance metrics for 10-50-100 epochs tested for more pre-trained and custom models
+Performance metrics for 10-50-100 epochs tested for more pre-trained and custom models.
+
+Week 8:
+Testing out stand-alone Trained NNs, without any custom layers/hyperparameter tuning. better results for custom NN.
