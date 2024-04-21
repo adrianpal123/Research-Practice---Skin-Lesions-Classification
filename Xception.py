@@ -23,8 +23,8 @@ xception_base = Xception(weights='imagenet', include_top=False, input_shape=inpu
 model = Sequential([
     xception_base,
     GlobalAveragePooling2D(),
-    Dense(512, activation='relu'),
-    Dropout(0.5),
+    # Dense(512, activation='relu'),
+    # Dropout(0.5),
     Dense(num_classes, activation='softmax')
 ])
 

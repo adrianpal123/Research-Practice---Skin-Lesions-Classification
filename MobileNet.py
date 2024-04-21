@@ -24,8 +24,8 @@ mobilenet_base = MobileNet(weights='imagenet', include_top=False, input_shape=in
 model = Sequential([
     mobilenet_base,
     GlobalAveragePooling2D(),
-    Dense(512, activation='relu'),
-    Dropout(0.3),
+    # Dense(512, activation='relu'),
+    # Dropout(0.3),
     Dense(num_classes, activation='softmax')
 ])
 
@@ -38,7 +38,7 @@ model.compile(optimizer='adam',
 start_time = time.time()
 
 # Train the model
-history = model.fit(X_train, y_train, epochs=100, validation_data=(X_test, y_test))
+history = model.fit(X_train, y_train, epochs=15, validation_data=(X_test, y_test))
 
 # Record the end time
 end_time = time.time()
@@ -62,7 +62,7 @@ y_pred_probabilities = model.predict(X_test)
 y_pred = np.argmax(y_pred_probabilities, axis=1)
 
 # Initialize ModelPerformanceUtil with the model name
-performance_util = ModelPerformanceUtil("MobileNet- 100 Epochs")
+performance_util = ModelPerformanceUtil("MobileNet- 15 Epochs")
 
 # Generate and save plots along with performance metrics
 performance_util.generate_and_save_plots(history, y_test, y_pred)

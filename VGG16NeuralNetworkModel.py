@@ -31,8 +31,8 @@ for layer in vgg16_base.layers:
 model = Sequential([
     vgg16_base,
     Flatten(),
-    Dense(512, activation='relu'),
-    Dropout(0.5),
+    # Dense(512, activation='relu'),
+    # Dropout(0.5),
     Dense(num_classes, activation='softmax')
 ])
 
