@@ -1,11 +1,21 @@
+'''
+Author: Adrian Pal
+Summary: This class provides utility methods for evaluating and visualizing the performance of machine learning models.
+It includes methods for plotting training history, saving performance metrics, generating and saving plots, and recording training time.
+'''
+
 import os
 import matplotlib.pyplot as plt
-import numpy as np
 from sklearn.metrics import classification_report
-
 
 class ModelPerformanceUtil:
     def __init__(self, model_name, image_dir="Performance_Images"):
+        """
+        Initialize the ModelPerformanceUtil with model name and image directory.
+
+        :param model_name: Name of the model.
+        :param image_dir: Directory to save performance images.
+        """
         self.model_name = model_name
         self.image_dir = image_dir
         self.history = None
@@ -14,6 +24,12 @@ class ModelPerformanceUtil:
         os.makedirs(self.image_dir, exist_ok=True)
 
     def plot_training_history(self, history):
+        """
+        Plot the training history (accuracy and loss) and save the plots.
+
+        :param history: Keras History object containing training history.
+        :return: A plot of the training over a different amount of epochs.
+        """
         self.history = history
         if self.history is not None:
             # Create a new figure
@@ -41,13 +57,26 @@ class ModelPerformanceUtil:
             plt.close()
 
     def save_performance_metrics(self, metrics_dict):
+        """
+        Save the performance metrics to a text file.
+
+        :param metrics_dict: Dictionary containing performance metrics.
+        :return: A text file returning the performace metrics.
+        """
         with open(os.path.join(self.image_dir, f'{self.model_name}_performance_metrics.txt'), 'w') as f:
             f.write(f'{self.model_name} Performance Metrics:\n')
             for metric_name, metric_value in metrics_dict.items():
                 f.write(f'{metric_name}: {metric_value}\n')
 
-
     def generate_and_save_plots(self, history, y_true, y_pred):
+        """
+        Generate and save plots (training history) and save performance metrics.
+
+        :param history: Keras History object containing training history.
+        :param y_true:  True labels.
+        :param y_pred: Predicted labels.
+        :return: Images of the training plots.
+        """
         self.plot_training_history(history)
 
         # Compute evaluation metrics
@@ -69,6 +98,13 @@ class ModelPerformanceUtil:
         self.save_performance_metrics(metrics_dict)
 
     def record_training_time(self, start_time, end_time):
+        """
+        Record the training time and save it to the performance metrics file.
+
+        :param start_time: Start time of training.
+        :param end_time: End time of training.
+        :return: Time taken to train the model, text appended in the text file.
+        """
         # Calculate the training time
         training_time = end_time - start_time
 

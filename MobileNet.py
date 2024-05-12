@@ -1,3 +1,10 @@
+'''
+Author: Adrian Pal
+Summary: This script builds, trains, and evaluates a custom classification model using the MobileNet architecture for Skin Lesion classification.
+It utilizes transfer learning by loading the pre-trained MobileNet model and fine-tunes it for the specific task.
+The script includes data preprocessing, model compilation, training, evaluation, and performance analysis.
+'''
+
 from tensorflow.keras.applications import MobileNet
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, GlobalAveragePooling2D, Dropout

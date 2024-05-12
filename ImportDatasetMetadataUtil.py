@@ -1,11 +1,20 @@
+'''
+Author: Adrian Pal
+Summary: This script prepares the HAM10000 dataset for skin lesion classification.
+It sets the base directory and image directories, copies metadata CSV file to the destination folder, extracts image files from zip archives, and updates the base directory to point to the folder containing all images.
+'''
+
 import os
 import shutil
 from zipfile import ZipFile
-
 import numpy as np
 
-# Set the base directory and image directories
 def get_base_skin_dir():
+    """
+    Set the base directory and image directories for the HAM10000 dataset.
+    :return:
+     str: Path to the base directory containing all images.
+    """
     base_skin_dir = r'C:\Users\Adrian\Desktop\Research-Practice---Skin-Lesions-Classification\Neural Network Models'
     base_skin_metadata = os.path.join(base_skin_dir, 'Skin_Lesions/HAM10000_metadata.csv')
     image_zip_files = [

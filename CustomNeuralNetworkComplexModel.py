@@ -1,13 +1,18 @@
-import os
-import numpy as np
+'''
+Author: Adrian Pal
+Summary: This script defines a custom more complex convolutional neural network (CNN) architecture for skin Lesion classification.
+It utilizes the Keras library for model creation and training, and sklearn for data splitting.
+The script includes data preprocessing steps, model definition, compilation, training with data augmentation and performance evaluation.
+'''
+
 import time
+import numpy as np
 from keras.preprocessing.image import ImageDataGenerator
-from sklearn.model_selection import train_test_split
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Conv2D, MaxPooling2D, Dropout, Flatten, Dense, BatchNormalization
 from tensorflow.keras.callbacks import ReduceLROnPlateau
-from PreprocessingForNeuralNetworksUtil import DataPreprocessingUtil, metadata_path, image_dir
+from tensorflow.keras.layers import Conv2D, MaxPooling2D, Dropout, Flatten, Dense, BatchNormalization
+from tensorflow.keras.models import Sequential
 from ModelPerformanceUtil import ModelPerformanceUtil
+from PreprocessingForNeuralNetworksUtil import DataPreprocessingUtil, metadata_path, image_dir
 
 # Initialize DataPreprocessingUtil
 data_util = DataPreprocessingUtil(metadata_path, image_dir)

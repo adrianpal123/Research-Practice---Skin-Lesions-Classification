@@ -1,14 +1,17 @@
-import os
-import numpy as np
-import time
-from sklearn.model_selection import train_test_split
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Conv2D, MaxPooling2D, Dropout, Flatten, Dense
-from tensorflow.keras.callbacks import ReduceLROnPlateau
-from PreprocessingForNeuralNetworksUtil import DataPreprocessingUtil, metadata_path, image_dir
-from ModelPerformanceUtil import ModelPerformanceUtil
+'''
+Author: Adrian Pal
+Summary: This script defines a custom more Simple Straight - forward convolutional neural network (CNN) architecture for skin Lesion classification.
+It utilizes the Keras library for model creation and training, and sklearn for data splitting.
+The script includes data preprocessing steps, model definition, compilation and performance evaluation.
+'''
 
+import time
+import numpy as np
 import tensorflow as tf
+from tensorflow.keras.layers import Conv2D, MaxPooling2D, Dropout, Flatten, Dense
+from tensorflow.keras.models import Sequential
+from ModelPerformanceUtil import ModelPerformanceUtil
+from PreprocessingForNeuralNetworksUtil import DataPreprocessingUtil, metadata_path, image_dir
 
 gpus = tf.config.experimental.list_physical_devices('GPU')
 if gpus:

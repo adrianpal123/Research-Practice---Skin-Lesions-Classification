@@ -1,6 +1,11 @@
+'''
+Author: Adrian Pal
+Summary: This class provides utility methods for preprocessing data for neural networks.
+It includes methods for loading metadata, loading images, preprocessing images, splitting data into training and testing sets, counting images, and checking the device type (CPU/GPU).
+'''
+
 import os
 from random import shuffle
-
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -15,16 +20,36 @@ image_dir = r'C:\Users\Adrian\Desktop\Research-Practice---Skin-Lesions-Classific
 
 class DataPreprocessingUtil:
     def __init__(self, metadata_path, image_dir, target_size=(100, 100)):
+        """
+        Initialize the DataPreprocessingUtil with metadata path, image directory, and target size.
+
+        :param metadata_path: Path to the metadata file.
+        :param image_dir: Directory containing the images.
+        :param target_size: Target size for image resizing. Defaults to (100, 100).
+        """
         self.metadata_path = metadata_path
         self.image_dir = image_dir
         self.target_size = target_size
 
     def preprocess_image(self, image_path):
+        """
+        Preprocess a single image by resizing and normalizing.
+
+        :param image_path: Path to the image.
+        :return:
+            np.array: Preprocessed image as a NumPy array.
+        """
         img = load_img(image_path, target_size=self.target_size)
         img_array = img_to_array(img) / 255.0  # Normalize pixel values
         return img_array
 
     def load_data(self):
+        """
+        Load data from metadata and images, preprocess images, and map diagnoses to numerical labels.
+
+        :return:
+            tuple: Tuple containing X (images) and y (labels).
+        """
         tile_df = pd.read_csv(self.metadata_path)
 
         # Map diagnosis to numerical labels
@@ -52,13 +77,37 @@ class DataPreprocessingUtil:
         return np.array(X), np.array(y)
 
     def train_test_split(self, test_size=0.2, random_state=42):
+        """
+        Split the data into training and testing sets.
+
+        :param test_size: Size of the testing set. Defaults to 0.2.
+        :param random_state: Random seed for reproducibility. Defaults to 42.
+        :return:
+            tuple: Tuple containing X_train, X_test, y_train, and y_test.
+        """
         X, y = self.load_data()
         return train_test_split(X, y, test_size=test_size, random_state=random_state)
 
     def num_classes(self):
+        """
+        Get the number of classes in the dataset.
+        :return:
+            int: Number of classes.
+        """
         return 7  # Since there are 7 different classes in the dataset
 
     def binary_train_test_split(tile_df, input_dims, test_size=0.25, random_state=42):
+        """
+        Split the data into training and testing sets for binary classification.
+
+        :param tile_df (DataFrame): DataFrame containing data.
+        :param input_dims: Input dimensions for resizing images.
+        :param test_size: Size of the testing set. Defaults to 0.25.
+        :param random_state: Random seed for reproducibility. Defaults to 42.
+        :return:
+            tuple: Tuple containing x_train, x_test, y_train, and y_test.
+        """
+
         # Map 'Benign' to 1 and the rest to 0
         tile_df['benign_type'] = tile_df['benign_status'].apply(lambda x: 1 if x == 'Benign' else 0)
 
@@ -82,6 +131,11 @@ class DataPreprocessingUtil:
         return x_train, x_test, y_train, y_test
 
     def check_device(self):
+        """
+        Check the device type (CPU/GPU).
+
+        :return: A printing to show whether the code is running on cpu or gpu
+        """
         device_name = tf.test.gpu_device_name()
         if device_name == '':
             print("Running on CPU")
@@ -89,6 +143,11 @@ class DataPreprocessingUtil:
             print("Running on GPU:", device_name)
 
     def count_images(self):
+        """
+        Count the number of images in the image directory.
+
+        :return:
+            int: Number of images.
+        """
         image_count = len([file for file in os.listdir(self.image_dir) if file.endswith('.jpg')])
         return image_count
-

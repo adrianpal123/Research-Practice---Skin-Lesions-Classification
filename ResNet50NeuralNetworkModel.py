@@ -1,13 +1,17 @@
-import os
-import numpy as np
-from sklearn.model_selection import train_test_split
-from tensorflow.keras.applications import ResNet50
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense, GlobalAveragePooling2D, Dropout
-from tensorflow.keras.callbacks import ReduceLROnPlateau
-from PreprocessingForNeuralNetworksUtil import DataPreprocessingUtil, metadata_path, image_dir
-from ModelPerformanceUtil import ModelPerformanceUtil
+'''
+Author: Adrian Pal
+Summary: This script builds, trains, and evaluates a custom classification model using the ResNet50 architecture for Skin Lesion classification.
+It utilizes transfer learning by loading the pre-trained ResNet50 model and fine-tunes it for the specific task.
+The script includes data preprocessing, model compilation, training, evaluation, and performance analysis.
+'''
+
 import time
+import numpy as np
+from tensorflow.keras.applications import ResNet50
+from tensorflow.keras.layers import Dense, GlobalAveragePooling2D
+from tensorflow.keras.models import Sequential
+from ModelPerformanceUtil import ModelPerformanceUtil
+from PreprocessingForNeuralNetworksUtil import DataPreprocessingUtil, metadata_path, image_dir
 
 # Initialize DataPreprocessingUtil
 data_util = DataPreprocessingUtil(metadata_path, image_dir)
@@ -41,7 +45,7 @@ model.compile(optimizer='adam',
 start_time = time.time()
 
 # Train the model
-history = model.fit(X_train, y_train, epochs=100, validation_data=(X_test, y_test))
+history = model.fit(X_train, y_train, epochs=15, validation_data=(X_test, y_test))
 
 # Record the end time
 end_time = time.time()
@@ -55,7 +59,7 @@ y_pred_probabilities = model.predict(X_test)
 y_pred = np.argmax(y_pred_probabilities, axis=1)
 
 # Initialize ModelPerformanceUtil with the model name
-performance_util = ModelPerformanceUtil("RESNET50 - 100Epochs")
+performance_util = ModelPerformanceUtil("RESNET50 - 15Epochs")
 
 # Generate and save plots along with performance metrics
 performance_util.generate_and_save_plots(history, y_test, y_pred)
