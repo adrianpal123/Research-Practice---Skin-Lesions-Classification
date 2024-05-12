@@ -28,3 +28,7 @@ Performance metrics for 10-50-100 epochs tested for more pre-trained and custom 
 
 Week 8:
 Testing out stand-alone Trained NNs, without any custom layers/hyperparameter tuning. better results for custom NN.
+
+Week 10:
+Commenting of the code -> Summary of scripts and classes and also methods commented.
+Overall code check -> code importation organized, typos checked etc.
